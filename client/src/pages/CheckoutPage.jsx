@@ -27,7 +27,7 @@ function Checkout() {
   }, [currentCart])
 
   const appearance = {
-    theme: 'stripe',
+    theme: 'stripe'
   }
   const options = {
     clientSecret,
@@ -36,9 +36,9 @@ function Checkout() {
 
 
   return(
-    <div>
+    <div className='flex flex-col items-center justify-center bg-hero-image w-screen h-screen sm:h-screen lg:h-screen bg-cover bg-center text-slate-500'>
       {clientSecret && (
-      <Elements options={options} stripe={stripePromise}>
+      <Elements options={options} stripe={stripePromise} >
         <PaymentForm />
       </Elements>
       )}

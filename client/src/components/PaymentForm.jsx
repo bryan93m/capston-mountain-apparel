@@ -85,9 +85,9 @@ export default function PaymentForm() {
 
 
 	return (
-		<form id="payment-form" onSubmit={handleSubmit}>
-			<PaymentElement id="payment-element" />
-			<button disabled={isLoading || !stripe || !elements} id="submit">
+		<form id="payment-form" onSubmit={handleSubmit} className='flex flex-col bg-slate-300 bg-opacity-80 text-slate-600 rounded border border-blue-500 shadow-lg p-12 mt-12'>
+			<PaymentElement id="payment-element" className="text-slate-300"/>
+			<button disabled={isLoading || !stripe || !elements} id="submit" className=" h-12 w-64 border border-blue-500 mt-8  rounded font-semibold text-sm hover:scale-105 duration-300">
 				<span id="button-text" className="cursor-pointer" onClick={onClick}>
 					{isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
 				</span>
