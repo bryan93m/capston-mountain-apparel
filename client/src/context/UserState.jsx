@@ -15,6 +15,14 @@ function UserState(props) {
             updateUser(res.data)
         })
     }, [])
+    //functions//
+
+    const logout = () => {
+        axios.delete('/logout')
+        .then(res => {
+            updateUser(false)
+        })
+    }
 
 
     const updateUser = (user) => setUser(user)
@@ -23,6 +31,7 @@ function UserState(props) {
   return (
     <UserContext.Provider value={{
         updateUser,
+        logout,
         user
     }}>
         {props.children}

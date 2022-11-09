@@ -4,11 +4,12 @@ import MensProducts from './pages/MensProducts';
 import WomensProducts from './pages/WomensProducts';
 import SingleProductPage from './pages/SingleProductPage';
 import Cart from './pages/CartPage';
-import Checkout from './pages/CheckoutPage';
 import HomePage from './pages/HomePage';
 import Login from './pages/LoginPage';
 import Register from './pages/RegisterPage';
 import NavBar from './components/NavBar';
+import Checkout from './pages/CheckoutPage';
+import UserPage from './pages/UserPage';
 
 
 
@@ -24,9 +25,10 @@ function App() {
         <Route path="/womens" element={<WomensProducts />} />
         <Route path="/products/:id" element={<SingleProductPage />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
     </>
   );

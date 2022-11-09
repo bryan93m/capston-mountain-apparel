@@ -1,10 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { MenuOutlined } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import MenuItems from './MenuItems';
+import UserContext from '../context/UserContext';
 
 function NavBar() {
+    const userContext = useContext(UserContext)
     const [active, setActive] = useState(false);
+    const {logout} = userContext
 
     const showMenu = () => {
         setActive(!active);
@@ -28,7 +31,8 @@ function NavBar() {
                 <li className='hover:scale-105 duration-300'><Link to='/mens'>Mens</Link></li>
                 <li className='hover:scale-105 duration-300'><Link to='/womens'>Womens</Link></li>
                 <li className='hover:scale-105 duration-300'><Link to='/cart'>Cart</Link></li>
-                <li className='hover:scale-105 duration-300'><Link to='/logout'>Logout</Link></li>
+                <li className='hover:scale-105 duration-300'><Link to='/user'>Account</Link></li>
+                <li className='hover:scale-105 duration-300'><Link to='/login' onClick={logout}>Logout</Link></li>
             </ul>
             
             <MenuItems showMenu={showMenu} active={active}/>

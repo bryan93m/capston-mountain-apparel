@@ -17,12 +17,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_213936) do
   create_table "order_details", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
+    t.bigint "sizing_id", null: false
     t.float "price"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_order_details_on_order_id"
     t.index ["product_id"], name: "index_order_details_on_product_id"
+    t.index ["sizing_id"], name: "index_order_details_on_sizing_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -71,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_213936) do
 
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
+  add_foreign_key "order_details", "sizings"
   add_foreign_key "orders", "users"
   add_foreign_key "product_sizings", "products"
   add_foreign_key "product_sizings", "sizings"

@@ -1,5 +1,7 @@
-u1 = User.create(first_name: "Bryan", last_name: "Meadows", email: "bryan1993meadows@gmail.com", password_digest: "password")
-u2 = User.create(first_name: "John", last_name: "Doe", email: "john@email.com", password_digest: "password",)
+
+
+u1 = User.create(first_name: "Bryan", last_name: "Meadows", email: "bryan1993meadows@gmail.com", password: "password")
+u2 = User.create(first_name: "John", last_name: "Doe", email: "john@email.com", password: "password",)
 
 m1 = Product.create(name: "Black Long Sleeve", price: 12.00, description: "A black long sleeve gym shirt", image: "https://i.pinimg.com/736x/0e/a6/c3/0ea6c313c506fba279c517ad9963764b.jpg", stock: 5, gender: "male")
 m2 = Product.create(name: "Blue Long Sleeve", price: 13.25, description: "High quality long sleeve gym shirt", image: "https://www.gymclothes.com/wp-content/uploads/2019/11/wholesale-seamless-dri-fit-full-sleeve-shirts-manufacturers.jpeg", stock: 10, gender: "male")

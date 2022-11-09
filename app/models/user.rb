@@ -4,4 +4,5 @@ class User < ApplicationRecord
     has_many :order_details, through: :orders
 
     validates :email, presence: true, uniqueness: true
+
 end

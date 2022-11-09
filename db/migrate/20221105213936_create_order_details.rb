@@ -3,6 +3,7 @@ class CreateOrderDetails < ActiveRecord::Migration[7.0]
     create_table :order_details do |t|
       t.references :order, null: false, foreign_key: true
       t.references :product, null: false, foreign_key: true
+      t.references :sizing, null: false, foreign_key: true
       t.float :price
       t.integer :quantity
 

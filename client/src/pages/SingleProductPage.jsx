@@ -1,14 +1,31 @@
-import {useContext} from 'react'
+import {useState, useContext} from 'react'
 import ProductContext from '../context/ProductContext'
 
 
 function SingleProductPage() {
-  // const [sizes, setSizes] = useState([])
+  const [quantity, setQuantity] = useState(0)
+  const [sizing, setSizing] = useState(0)
+  const [total, setTotal] = useState(0)
 
   const productContext = useContext(ProductContext)
 
-  const {singleProduct} = productContext
+  const {singleProduct, handleAddToCart} = productContext
   const {name, price, description, image, sizings} = singleProduct
+
+  const onClick = (e) => {
+    e.preventDefault()
+    handleAddToCart(singleProduct, sizing, quantity, total)
+  }
+
+  const handleSizing = (e) => {
+    setSizing(e.target.value)
+  }
+  
+  
+  const handleQuantityAndTotal = (e) => {
+    setQuantity(e.target.value)
+    setTotal(e.target.value * price)
+  }
 
 
   return (
@@ -23,16 +40,16 @@ function SingleProductPage() {
           <h2 className='text-xl font-semibold text-blue-500'>{price}</h2>
           <p className='text-blue-500 font-semibold'>{description}</p>
         <div className='flex items-center space-x-2 pt-5'>
-        <select className='bg-slate-600 text-slate-300'>
+        <select onChange={handleSizing} className='bg-slate-600 text-slate-300'>
           <option value="select">Select Size</option>
           {sizings?.map((item, index) => (
             <option className='text-slate-300' key={index} value={item.id}>{item.size}</option>
           ))}
         </select>
         </div>
-        <input type='number' placeholder='1' className='bg-slate-600 mt-5 outline-0 w-16 px-2 border-2 text-slate-300 border-gray-800 cursor-pointer'/>
+        <input onChange={handleQuantityAndTotal} type='number' placeholder='0' className='bg-slate-600 mt-5 outline-0 w-16 px-2 border-2 text-slate-300 border-gray-800 cursor-pointer'/>
           <div className='btns space-x-5 pt-5'>
-            <button className='border border-blue-500 text-blue-500 font-semibold px-5 py-2 hover:scale-105 duration-300'>Add To Cart</button>
+            <button onClick={onClick} className='border border-blue-500 text-blue-500 font-semibold px-5 py-2 hover:scale-105 duration-300'>Add To Cart</button>
           </div>
         </div>
       </div>
