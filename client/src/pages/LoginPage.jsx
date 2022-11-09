@@ -29,7 +29,7 @@ function Login() {
     .then(res => {
       console.log(res.data)
       updateUser(res.data)
-      navigate('/')
+      navigate('/home')
     })
   }
 

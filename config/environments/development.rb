@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-
+require "stripe"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -66,6 +66,8 @@ Rails.application.configure do
     user_name: "mountian.fitness.apparel@gmail.com",
     password: "mxrflbfvucjeulmw",
   }
+
+  Stripe.api_key = Rails.application.credentials.stripe_secret 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
