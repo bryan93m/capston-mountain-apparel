@@ -13,7 +13,7 @@ function NavBar() {
         setActive(!active);
     }
   return (
-    <div className='fixed w-full text-blue-500 flex justify-between p-4 items-center'>
+    <div className='fixed w-full text-blue-500 flex justify-between p-4 items-center z-50'>
 
         <div className='text-2xl font-bold text-center uppercase'>
             <h1>m <span className='block text-4xl'>fitness</span></h1>
@@ -26,7 +26,7 @@ function NavBar() {
                 <MenuOutlined onClick={showMenu} className='scale-150 cursor-pointer'/>
             </div>
 
-            <ul className='hidden md:flex gap-8 p-6 uppercase bg-white/10'>
+            <ul className='hidden md:flex gap-8 p-6 uppercase bg-slate-900/25'>
                 <li className='hover:scale-105 duration-300'><Link to='/home'>Home</Link></li>
                 <li className='hover:scale-105 duration-300'><Link to='/mens'>Mens</Link></li>
                 <li className='hover:scale-105 duration-300'><Link to='/womens'>Womens</Link></li>

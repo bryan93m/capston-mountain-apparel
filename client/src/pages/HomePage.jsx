@@ -1,10 +1,20 @@
-import React from 'react'
+// import {Parallax} from 'react-parallax';
+import ImageOne from '../components/ImageOne';
+import ImageTwo from '../components/ImageTwo';
+import ParaNav from '../components/ParaNav';
+import TextBox from '../components/TextBox';
 
 function HomePage() {
   return (
-    <div className='flex flex-col items-center justify-center bg-hero-image w-screen h-screen sm:h-screen lg:h-screen bg-cover bg-center text-slate-500'>
-      <h1 className='font-bold text-2xl'>WELCOME</h1>
+    <>
+    
+    <div>
+      <ParaNav />
+      <TextBox/>
+      <ImageOne />
+      <ImageTwo />
     </div>
+    </>
   )
 }
 

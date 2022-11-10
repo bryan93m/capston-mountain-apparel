@@ -39,6 +39,7 @@ const getSingleProduct = (id) => {
 //add to cart//
 const currentCart = productOrders.map(order => order)
 
+
 const handleAddToCart = (product, sizingId, quantity, total) => {
  fetch('/order_details', {
     method: 'POST',
@@ -60,24 +61,27 @@ const handleAddToCart = (product, sizingId, quantity, total) => {
   })
 }
 
+//update total price//
+useEffect(() => {
+  setTotal(productOrders.reduce((acc, order) => acc + order.price, 0))
+}, [productOrders])
+
 // GET order details //
 useEffect(() => {
   axios.get('/order_details')
     .then(res => {
       setProductOrders(res.data)
-      setTotal(res.data.reduce((acc, order) => acc + order.price, 0))
     })
 }, [])
 
 //delete from cart//
 
-const handleDelete = (id) => {
+const clearCartItem = (id) => {
   axios.delete(`/order_details/${id}`)
     .then(res => {
       setProductOrders(res.data)
       setTotal(res.data.reduce((acc, order) => acc + order.price, 0))
     })
-    .catch(err => console.log(err))
 }
  
   const clearUserCart = () => {
@@ -98,7 +102,7 @@ const handleDelete = (id) => {
         singleProduct,
         handleAddToCart,
         currentCart,
-        handleDelete,
+        clearCartItem,
         setTotal,
         clearUserCart,
         total

@@ -32,6 +32,12 @@ class OrderDetailsController < ApplicationController
         render json: product
     end
 
+    def destroy
+        order_detail = OrderDetail.find(params[:id])
+        order_detail.destroy
+        head :no_content
+    end
+
 
 
 

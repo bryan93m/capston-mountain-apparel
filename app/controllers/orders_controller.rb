@@ -19,6 +19,11 @@ class OrdersController < ApplicationController
         current_user.orders.destroy_all
         render json: current_user.orders
     end
+
+    def update
+        order = Order.find(params[:id])
+        render json: order.update(order_params)
+    end
     
 
     private 
