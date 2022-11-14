@@ -49,7 +49,7 @@ function SingleProductPage() {
         </div>
         <input onChange={handleQuantityAndTotal} type='number' placeholder='0' className='bg-slate-600 mt-5 outline-0 w-16 px-2 border-2 text-slate-300 border-gray-800 cursor-pointer'/>
           <div className='btns space-x-5 pt-5'>
-            <button onClick={onClick} className='border border-blue-500 text-blue-500 font-semibold px-5 py-2 hover:scale-105 duration-300'>Add To Cart</button>
+            <button onClick={onClick} className='border border-blue-500 text-blue-500 bg-slate-900 opacity-80 font-semibold px-5 py-2 hover:scale-105 duration-300'>Add To Cart</button>
           </div>
         </div>
       </div>

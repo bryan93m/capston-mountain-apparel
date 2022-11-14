@@ -16,7 +16,7 @@ function MensCard({product, handleClick}) {
 
     
   return (
-    <div onClick={handleProductClick} className='border shadow-lg bg-slate-900 opacity-80 rounded-lg hover:scale-105 border-slate-400 duration-300'>
+    <div onClick={handleProductClick} className='border shadow-lg bg-slate-900 opacity-90 text-slate-300 rounded-lg hover:scale-105 border-blue-500 duration-300'>
         <img src={image} alt={name}
         className='w-full h-[200px] object-cover rounded-t-lg'
         />

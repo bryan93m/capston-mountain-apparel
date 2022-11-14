@@ -38,7 +38,7 @@ function Cart() {
       </div>
       <div>
         <Link to='/checkout' >
-          <button className="flex items-center justify-center h-12 px-6 w-64 border border-blue-500 mt-8 rounded font-semibold text-sm text-blue-100 hover:scale-105 duration-300">Checkout</button>
+          <button className="flex items-center justify-center h-12 px-6 w-64 border bg-slate-900 opacity-80 border-blue-500 mt-8 rounded font-semibold text-sm text-blue-500 hover:scale-105 duration-300">Checkout</button>
         </Link>
       </div>
     </div>
