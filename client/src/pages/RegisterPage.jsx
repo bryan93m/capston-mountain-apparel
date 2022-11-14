@@ -41,7 +41,7 @@ function Register() {
   return (
 <div className='flex flex-col items-center justify-center bg-hero-image w-screen h-screen sm:h-screen lg:h-screen bg-cover bg-center text-slate-500'>
     <h1 className='font-bold text-2xl'>REGISTER</h1>
-    <form onSubmit={handleSubmit} className='flex flex-col bg-slate-600 rounded shadow-lg p-12 mt-12'>
+    <form onSubmit={handleSubmit} className='flex flex-col bg-slate-900 opacity-80 rounded shadow-lg p-12 mt-12'>
       <label 
       className='font-semibold text-xs text-slate-300' 
       htmlFor='firstName'>

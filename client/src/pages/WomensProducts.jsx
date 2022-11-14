@@ -25,7 +25,7 @@ function WomensProducts() {
             navigate(`/products/${item.id}`)
           }
         } 
-        className='border shadow-lg bg-slate-600 rounded-lg hover:scale-105 border-slate-400 duration-300'>
+        className='border shadow-lg bg-slate-900 opacity-90 rounded-lg text-slate-300 hover:scale-105 border-blue-500 duration-300'>
           <img src={item.image} alt={item.name}
           className='w-full h-[200px] object-cover rounded-t-lg'
           />
