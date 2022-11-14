@@ -10,10 +10,18 @@ import OrderItem from '../components/OrderItem'
 
 
 function Cart() {
+  
   //context//
   const productContext = useContext(ProductContext)
-  const {currentCart, total, clearCartItem} = productContext
+  const {productOrders, total, clearCartItem} = productContext
 
+  //get total price//
+
+  
+
+  const orderItems = Object.keys(productOrders).map((key) => {
+    return <OrderItem key={key} index={key} details={productOrders[key]} remove={clearCartItem}/>
+  })
 
   return (
 
@@ -22,7 +30,7 @@ function Cart() {
         <h1 className='block font-bold text-4xl'>CART</h1>
       </div>
     <div className=''>
-      {currentCart.map(order => <OrderItem key={order.id} order={order} remove={clearCartItem} />)}
+      {orderItems}
     </div>
     <div>
       <div className='font-semibold items-center text-slate-300 text-s mt-3'>

@@ -9,7 +9,7 @@ function ProductState(props) {
   const [search, setSearch] = useState('')
   const [singleProduct, setSingleProduct] = useState([])
   const [productOrders, setProductOrders] = useState([])
-  const [order, setOrder] = useState({})
+  const [order, setOrder] = useState([])
   const [total, setTotal] = useState(0)
 
 
@@ -35,10 +35,9 @@ const getSingleProduct = (id) => {
     .then(res => setSingleProduct(res.data))
 }
 
-
 //add to cart//
-const currentCart = productOrders.map(order => order)
 
+ 
 
 const handleAddToCart = (product, sizingId, quantity, total) => {
  fetch('/order_details', {
@@ -62,9 +61,13 @@ const handleAddToCart = (product, sizingId, quantity, total) => {
 }
 
 //update total price//
-useEffect(() => {
-  setTotal(productOrders.reduce((acc, order) => acc + order.price, 0))
-}, [productOrders])
+ useEffect(() => {
+  let total = 0
+  Object.values(productOrders).map((order) => {
+    total += order.price
+  })
+  setTotal(total)
+ }, [productOrders])
 
 // GET order details //
 useEffect(() => {
@@ -80,7 +83,12 @@ const clearCartItem = (id) => {
   axios.delete(`/order_details/${id}`)
     .then(res => {
       setProductOrders(res.data)
-      setTotal(res.data.reduce((acc, order) => acc + order.price, 0))
+    })
+    .then(resp => {
+      axios.get('/order_details')
+        .then(resp => {
+          setProductOrders(resp.data)
+        })
     })
 }
  
@@ -93,6 +101,9 @@ const clearCartItem = (id) => {
     })
   }
 
+  
+
+
   return (
     <ProductContext.Provider value={{
         displayWomensearch,
@@ -101,10 +112,11 @@ const clearCartItem = (id) => {
         getSingleProduct,
         singleProduct,
         handleAddToCart,
-        currentCart,
+        // currentCart,
         clearCartItem,
         setTotal,
         clearUserCart,
+        productOrders,
         total
     }}>
         {props.children}
