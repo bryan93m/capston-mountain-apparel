@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: mountain_apparel_production
-  username: mountain_apparel
-  password: <%= ENV["MOUNTAIN_APPAREL_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
