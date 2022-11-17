@@ -53,11 +53,13 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  #config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
+  config.action_mailer.perform_caching = false
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
@@ -66,6 +68,18 @@ Rails.application.configure do
     user_name: "mountian.fitness.apparel@gmail.com",
     password: "mxrflbfvucjeulmw",
   }
+
+
+  # Raises error for missing translations.
+  # config.i18n.raise_on_missing_translations = true
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.gmail.com",
+  #   port: 587,
+  #   domain: "localhost:3000",
+  #   user_name: "mountian.fitness.apparel@gmail.com",
+  #   password: "mxrflbfvucjeulmw",
+  # }
 
   Stripe.api_key = Rails.application.credentials.stripe_secret 
   # Annotate rendered view with file names.
