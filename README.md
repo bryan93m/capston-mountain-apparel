@@ -1,24 +1,33 @@
-# README
+# Mountain Apparel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###Description
+- Mountain Apparel is an Ecommerce type web app that allows the user to buy Fitness apperal men/women
 
-Things you may want to cover:
+###USER
+ - Register(recieve welcome email from store)
+ - Login
+ - Shop within Mens and Womens sections
+ - Select size and quantity of Items
+ - Add Items to a shopping cart
+ - Remove Item from cart
+ - Checkout and Complete Payment
+ - Logout
+ 
+ ###Backend
+ - open console within file and Bundle install
+ - start postgres service
+ - db:create db:migrate db:seed
+ - rails s
 
-* Ruby version
+###Frontend
+- cd into client folder
+- npm install
+- npm start
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+###Technologies Used
+- ReactJS
+- Ruby on Rails
+- ActionMailer
+- StripeAPI
 
 * ...
